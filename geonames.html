@@ -81,20 +81,24 @@
                             }
                         });
                     }
-                    var total_terremotos = respuesta.earthquakes;
-                    for (var i = 0; i < total_terremotos.length; i++) { /*con for recorremos un array o matriz*/
-                        var terremoto = total_terremotos[i]; /*con total cargamos todos los valores de cada terremoto, de la lista que nos sale en la web*/
-                        var color = "#aa0808"; /*creamos esto para diferenciar por color segun intensidad*/
 
-                            if(terremoto.magnitude < 7){
-                                color = "#00ff00";
-                            }
+                    var total_terremotos = respuesta.earthquakes;
+                    for (var i = 0; i < total_terremotos.length; i++) {
+                        //con for recorremos un array o matriz
+                        var terremoto = total_terremotos[i];
+                        //con esto cargamos todos los valores de cada terremoto, de la lista que nos sale en la web
+                        var color = "#aa0808";
+                        //creamos esto para diferenciar por color segun intensidad
+
+                        if (terremoto.magnitude < 7) {
+                            color = "#00ff00";
+                        }
 
 
                         terremotoPunto = new L.circleMarker([terremoto.lat, terremoto.lng],
                             {
                                 radius: parseInt(terremoto.magnitude * 2),
-                                fillColor: "#aa0808",
+                                fillColor: color, /*aqui hay que darle la variable color en vez de "#aa0808"*/
                                 color: "#ffffff",
                                 weight: 2,
                                 opacity: 1,
@@ -105,6 +109,7 @@
                         terremotoPunto.addTo(map);
 
                     }
+
                 }
             } //Fin respuesta terremotos
 
