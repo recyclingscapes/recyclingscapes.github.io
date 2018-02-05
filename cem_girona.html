@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Display a map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+
+            mapboxgl.accessToken = 'pk.eyJ1IjoicmVjeWNsaW5nc2NhcGVzIiwiYSI6ImNqY2pndGo5dDBkb3IycWx4ZnlkMG1pancifQ.J4HP3YKeptQcNn9gQDgvAg';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/recyclingscapes/cjd3heut54buj2sobdtc1wqdx',
+                center: [2.83737, 41.97226],
+                zoom: 16,
+                pitch: 45
+            });
+            map.addControl(new mapboxgl.NavigationControl());
+
+
+        }); //fin ready Jquery
+    </script>
+</head>
+
+<body>
+    <div id="map"></div>
+</body>
+
+</html>
