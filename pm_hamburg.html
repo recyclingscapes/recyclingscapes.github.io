@@ -1,0 +1,202 @@
+<html>
+    <head>
+    <meta charset='utf-8' />
+    <title>Accidentes BCN</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%;height: 100%}
+
+        .legend {
+  background-color: #fff;
+  border-radius: 3px;
+  bottom: 30px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding: 10px;
+  position: absolute;
+  right: 10px;
+  z-index: 1;
+}
+
+.legend h4 {
+  margin: 0 0 10px;
+}
+
+.legend p {
+  margin-left: 30px;
+  position: absolute;
+  display: block;
+  top: 0;
+}
+.legend div {
+  position: relative;
+}
+.legend div span {
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+  opacity: 0.8;
+  background-color: #d49a66;
+}
+.map-overlay {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    position: absolute;
+    width: 25%;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    z-index: 100;
+}
+.map-overlay .map-overlay-inner {
+    background-color: #fff;
+    box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.map-overlay input {
+    background-color: transparent;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    cursor: ew-resize;
+}
+
+    </style>
+
+<script>
+ $(document).ready(function() {
+
+var dePago=  ["ja","nein"];
+var colorPago=  ['#e26131', '#00ff00'];
+
+   mapboxgl.accessToken = 'pk.eyJ1IjoicmVjeWNsaW5nc2NhcGVzIiwiYSI6ImNqY2pndGo5dDBkb3IycWx4ZnlkMG1pancifQ.J4HP3YKeptQcNn9gQDgvAg';
+   var map = new mapboxgl.Map({
+       container: 'map',
+       style: 'mapbox://styles/recyclingscapes/cjdoicouc3hhz2sloybyjkqej',
+       center: [9.9959, 53.5416],
+       zoom: 11,
+       hash:true,
+       pitch:0
+   });
+   map.addControl(new mapboxgl.NavigationControl());
+
+        map.on('load', function() {
+              map.addSource("PandR_source", {
+                  type:"vector",
+                  url:"mapbox://recyclingscapes.2jld7jvj"
+              });  //fin map source
+
+              map.addLayer({
+                id:"park_and_ride",
+                type:"circle",
+                source:"PandR_source",
+                'source-layer':"HH_WFS_Verkehr_opendata-cfqa9h",
+                
+                paint: {
+                      'circle-radius': 5,
+                      'circle-color': {
+                        property: "entgeltpflichtig",
+                        type: 'categorical',
+                        stops: [
+                        [dePago[0], colorPago[0]],
+                        [dePago[1], colorPago[1]],
+                        ]
+                      },
+                      'circle-opacity': 0.8
+                    }
+                    
+                    // Paso 2
+                    ,filter:['==', 'entgeltpflichtig', dePago[0]]
+//
+
+
+
+
+              }); //fin add layers
+
+
+                creaLeyenda();
+//
+/*
+              $('#slider').on('change',function(e){
+                filtraPago($(this).val());
+              });
+  //
+                map.on('mousemove', 'park_and_ride', function (e) {
+                    console.info(e);
+                })
+*/
+        });//Fin load mapa
+
+// paso 1
+
+/*function creaLeyenda(){
+    for(i=0;"" ; "" ){
+            jQuery('#legend').append(
+            '<div><span style="background-color:'+colorPago[i]+';width:10px;height:10px;margin: 0 5px"></span>'+'Aplica tarifa'+'</div>'
+            );
+            
+    } 
+    for(i=1;"" ; "" ){
+            jQuery('#legend').append(
+            '<div><span style="background-color:'+colorPago[i]+';width:10px;height:10px;margin: 0 5px"></span>'+'Gratuito'+'</div>'
+            );
+    }
+
+}*/
+function creaLeyenda(){
+    for(i = 0; i < dePago.length; i++){
+        jQuery('#legend').append(
+        '<div><span style="background-color:' + colorPago[i] + ';width:10px;height:10px;margin: 0 5px"></span>' + dePago[i] + '</div>'
+                    );
+    }
+}
+
+//
+/*Paso 2
+function filtraPago(faresDue){
+    if (numdia == 7) {
+
+    var filters = ['!=', 'entgeltpflichtig', ''];
+    map.setFilter('park_and_ride', filters);
+    document.getElementById('faredueid').textContent = 'Todos';
+
+    } else {
+
+      
+      var filters = ['==', 'entgeltpflichtig', dePago[faresDue]];
+      map.setFilter('park_and_ride', filters);
+      document.getElementById('faredueid').textContent = dePago[faresDue];
+    }
+}
+*/
+
+}); //fin ready Jquery
+</script>
+</head>
+<body>
+
+  <div id='legend' class='legend'>
+    <h4>Park & Ride</h4>
+  </div>
+
+
+
+ <!-- <div class='map-overlay top'>
+      <div class='map-overlay-inner'>
+          <h4>Park & Ride en Hamburgo</h4>
+          <label id='faredueid'></label>
+          <input id='slider' type='range' min='0' max='2' step='1' value='0' />
+      </div>
+  </div>-->
+
+<div id='map'></div>
+
+</body>
+</html>

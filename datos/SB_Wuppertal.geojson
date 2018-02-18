@@ -1,0 +1,27 @@
+{
+"type": "FeatureCollection",
+"name": "SB_Wuppertal",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Kluse\/Schauspielhaus" }, "geometry": { "type": "Point", "coordinates": [ 7.154495235269021, 51.255701988443242 ] } },
+{ "type": "Feature", "properties": { "NAME": "Hauptbahnhof" }, "geometry": { "type": "Point", "coordinates": [ 7.148439244430926, 51.255922016107576 ] } },
+{ "type": "Feature", "properties": { "NAME": "Alter Markt" }, "geometry": { "type": "Point", "coordinates": [ 7.198255549582753, 51.269498386922372 ] } },
+{ "type": "Feature", "properties": { "NAME": "AdlerbrÃ¼cke" }, "geometry": { "type": "Point", "coordinates": [ 7.189035793025568, 51.267066709029905 ] } },
+{ "type": "Feature", "properties": { "NAME": "Loher BrÃ¼cke" }, "geometry": { "type": "Point", "coordinates": [ 7.181358063505606, 51.26718529181754 ] } },
+{ "type": "Feature", "properties": { "NAME": "VÃ¶lklinger StraÃŸe" }, "geometry": { "type": "Point", "coordinates": [ 7.174084411851235, 51.262488986462373 ] } },
+{ "type": "Feature", "properties": { "NAME": "Werther BrÃ¼cke" }, "geometry": { "type": "Point", "coordinates": [ 7.206665744996892, 51.272305385511366 ] } },
+{ "type": "Feature", "properties": { "NAME": "Landgericht" }, "geometry": { "type": "Point", "coordinates": [ 7.162409118921903, 51.258033396615566 ] } },
+{ "type": "Feature", "properties": { "NAME": "OhligsmÃ¼hle" }, "geometry": { "type": "Point", "coordinates": [ 7.142529258827542, 51.255336439369941 ] } },
+{ "type": "Feature", "properties": { "NAME": "Robert-Daum-Platz" }, "geometry": { "type": "Point", "coordinates": [ 7.134319162589408, 51.25237992082095 ] } },
+{ "type": "Feature", "properties": { "NAME": "Vohwinkel Schwebebahn" }, "geometry": { "type": "Point", "coordinates": [ 7.067778948877335, 51.230363810347683 ] } },
+{ "type": "Feature", "properties": { "NAME": "Bruch" }, "geometry": { "type": "Point", "coordinates": [ 7.077132123431139, 51.234272410232734 ] } },
+{ "type": "Feature", "properties": { "NAME": "Hammerstein" }, "geometry": { "type": "Point", "coordinates": [ 7.088292972706505, 51.236380340890243 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sonnborner StraÃŸe" }, "geometry": { "type": "Point", "coordinates": [ 7.096686810869607, 51.238115898915687 ] } },
+{ "type": "Feature", "properties": { "NAME": "Zoo\/Stadion" }, "geometry": { "type": "Point", "coordinates": [ 7.103249084380594, 51.24093329628824 ] } },
+{ "type": "Feature", "properties": { "NAME": "PestalozzistraÃŸe" }, "geometry": { "type": "Point", "coordinates": [ 7.1254137973065, 51.248629102810312 ] } },
+{ "type": "Feature", "properties": { "NAME": "Westende" }, "geometry": { "type": "Point", "coordinates": [ 7.118485704649956, 51.248947970874639 ] } },
+{ "type": "Feature", "properties": { "NAME": "Wupperfeld" }, "geometry": { "type": "Point", "coordinates": [ 7.213851517303139, 51.273284178413576 ] } },
+{ "type": "Feature", "properties": { "NAME": "Oberbarmen Bf" }, "geometry": { "type": "Point", "coordinates": [ 7.222080086002307, 51.274719153278248 ] } },
+{ "type": "Feature", "properties": { "NAME": "Varresbecker StraÃŸe" }, "geometry": { "type": "Point", "coordinates": [ 7.1071291573946, 51.246682068178941 ] } }
+]
+}
