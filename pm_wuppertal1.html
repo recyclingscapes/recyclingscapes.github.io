@@ -24,6 +24,7 @@
         #map {
             height: 100%;
             width: 100%;
+            z-index: 0;
         }
 
         #ventana {
@@ -45,7 +46,7 @@
                 center: [51.2544, 7.1498]
             });
 
-            stamen = L.tileLayer('//{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
+            stamen = L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
                 attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> — Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
                 subdomains: 'abcd',
                 maxZoom: 17,
@@ -57,21 +58,22 @@
                     maxZoom: 17,
                     minZoom: 1,
                     attribution: 'Tiles © Esri',
-            });
+                });
 
-            /*mapbox = L.tileLayer(
+            mapbox = L.tileLayer(
                 'https://api.mapbox.com/styles/v1/recyclingscapes/cjd3b3lm445wt2so2i4ddz31l/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmVjeWNsaW5nc2NhcGVzIiwiYSI6ImNqY2pndGo5dDBkb3IycWx4ZnlkMG1pancifQ.J4HP3YKeptQcNn9gQDgvAg', {
                     maxZoom: 17,
                     minZoom: 2,
                     attribution: 'Mapbox'
-            });*/
+                });
 
 
             PRide = new L.GeoJSON.AJAX('datos/PR_Wuppertal.geojson', {
                 maxZoom: 17,
                 minZoom: 8,
                 onEachFeature: function (feature, layer) {
-                    popupContent = "Estacion:<br><b>" + feature.properties.Name + "</b>,<br>" + "Plazas:<br><b>" + feature.properties.Plaetze + "</b>";
+                    popupContent = "Estacion:<br><b>" + feature.properties.Name + "</b>,<br>" +
+                        "Plazas:<br><b>" + feature.properties.Plaetze + "</b>";
                     layer.bindPopup(popupContent);
                 },
                 pointToLayer: function (feature, latlng) {
@@ -123,7 +125,7 @@
                         color: "#A901DB",
                         weight: 3,
                         opacity: 0.5,
-                        fillOpacity: 0
+                        fillOpacity: 0,
                     });
 
                 }
@@ -131,7 +133,7 @@
 
             var baseMaps = {
                 "Mapa base B/N": stamen,
-                //    "Mapa base color": mapbox
+                "Mapa base color": mapbox,
                 "Imagen aerea": esri
 
             };
@@ -153,6 +155,9 @@
 
 <body>
     <div id="map"></div>
+    <div id='legend' class='legend'>
+        <h4>Park + Ride</h4>
+    </div>
 
 </body>
 
