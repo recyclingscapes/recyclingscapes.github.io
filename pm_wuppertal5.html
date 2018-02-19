@@ -85,7 +85,6 @@
             opacity: 0.7;
             background-color: #ffffff;
         }
-
     </style>
 
     <script>
@@ -101,8 +100,7 @@
             });
 
             sinmapa = L.tileLayer(
-                '', {
-                });
+                '', {});
 
             mapbox = L.tileLayer(
                 'https://api.mapbox.com/styles/v1/recyclingscapes/cjdoicouc3hhz2sloybyjkqej/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmVjeWNsaW5nc2NhcGVzIiwiYSI6ImNqY2pndGo5dDBkb3IycWx4ZnlkMG1pancifQ.J4HP3YKeptQcNn9gQDgvAg', {
@@ -215,12 +213,12 @@
             }).addTo(map);
 
             var baseMaps = {
-                
+
                 "Mapa base 'dark'": mapbox,
                 "Mapa base 'bright'": stamen,
                 "Imagen aerea": esri,
                 "Mapa base desactivado": sinmapa
-                
+
 
             };
 
@@ -228,6 +226,9 @@
                 "Estaciones Schwebebahn": estaciones,
                 "Park & Ride": PRide
             };
+
+            addLegend("bottomright", colors = c("#A901DB", "#FF4000"), labels = c("Estaci&oacute;n Schwebebahn",
+                "Aparcamiento P+R"))
 
             controlCapas = L.control.layers(baseMaps, Overlay, {
                 collapsed: true
@@ -239,6 +240,16 @@
 
 
         });
+
+        /*var legend = L.control({
+            position: 'bottomright'
+        });
+        legend.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'info legend');
+            div.innerHTML +=
+                '<img alt="legend" src=" leyenda.png " width="127" height="120" />';
+        };
+        legend.addTo(map);*/
     </script>
 
 </head>
