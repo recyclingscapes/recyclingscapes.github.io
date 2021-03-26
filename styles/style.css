@@ -1,0 +1,199 @@
+body {
+    width: 100%;
+
+    margin: 0px auto;
+    background: #dddddd;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    padding: 0 0 90px auto;
+    min-width: 880px;
+}
+
+#logo-header {
+
+    text-decoration: none;
+    /* FLEX PARAMETERS */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#site-name {
+    display: block;
+    padding: 0;
+    margin: 0px 0px 0px 20px;
+}
+
+#site-name h1 {
+    font-size: 84px;
+    color: rgb(120, 100, 135);
+    margin-top: 20px;
+    margin-bottom: 0;
+    opacity: 0.4;
+}
+
+#site-name h2 {
+    font-size: 36px;
+    margin: 0 0 40px 0;
+    color: rgb(120, 100, 135);
+
+}
+
+.index {
+    background: #aaa;
+    padding: 10px;
+    height: 40px;
+    border-top: 1px solid #fff;
+    margin: 20px;
+    
+
+    /* FLEX PARAMETERS */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* flew-flow: column wrap; */
+    justify-content:start;
+
+    /* align-items: flex-start; */
+    align-items: center;
+    /* align-items: flex-end; */
+    /*align-items: stretch;*/
+    /* align-items: baseline; */
+    /*align-content: flex-start;*/
+    /* align-content: flex-end; */
+    /* align-content: center; */
+    /* align-content: stretch; */
+    /* align-content: space-between; */
+    align-content: space-around;
+}
+
+.index >div a {
+    padding: 0 20px 0 20px;
+    color: #444444;
+    font-weight: bold;
+    text-decoration: none; 
+}
+
+.index >div a:hover {
+    text-shadow: 0 0 1px black;
+    color: #000;
+}
+
+/*
+nav {
+    background-color: #666;
+    padding-left: 4px;
+    height: 100%;
+}
+
+nav ul li {
+    display: inline;
+    padding: 0px 20px 5px 20px;
+    border-right: 1px solid #fff;
+
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+
+}
+*/
+article {
+    margin-bottom: 50px;
+    padding: 20px 20px 0px 20px;
+}
+
+article p {
+    max-width: 100%;
+}
+
+footer {
+    display: block;
+    background-color: #ddd;
+    width: 100%;
+    /*position: absolute;*/
+    padding: 0 20px 0 20px;
+    border-top: 1px solid #fff;
+}
+
+footer a {
+    text-decoration: none;
+    color: #000;
+}
+
+footer a:hover {
+    text-shadow: 0 0 1px black;
+}
+
+.contenedor {
+    background: #ffffff;
+    padding: 10px;
+    /* height: 600px; */
+    border: 10px solid #bbbbbb;
+    margin: 20px;
+
+    /* FLEX PARAMETERS */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* flew-flow: column wrap; */
+    justify-content: flex-start;
+
+    /* align-items: flex-start; */
+    /* align-items: center; */
+    /* align-items: flex-end; */
+    /* align-items: stretch; */
+    /* align-items: baseline; */
+    align-content: flex-start;
+    /* align-content: flex-end; */
+    /* align-content: center; */
+    /* align-content: stretch; */
+    /* align-content: space-between; */
+    /* align-content: space-around; */
+}
+
+.elemento {
+    background-color: #f1f1f1;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.elemento1 {
+    /* line-height: 80px; */
+    width: 200px;
+    order: 0;
+    /* flex-grow: 1; */
+    /* flex-shrink: 1; */
+    flex-basis: auto;
+}
+
+.elemento2 {
+    /* line-height: 80px; */
+    order: 0;
+    /* flex-grow: 1; */
+    /* flex-shrink: 1; */
+    /* flex-basis: auto; */
+}
+
+.elemento3 {
+    /* line-height: 80px; */
+    width: 200px;
+    order: 0;
+    flex-grow: 1;
+    /* flex-shrink: 1; */
+}
+
+.elemento4 {
+    /* line-height: 80px; */
+    width: 200px;
+    order: 0;
+    flex-grow: 1;
+    /* flex-shrink: 1; */
+}
